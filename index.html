@@ -2,10 +2,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Trello</title>
-
-
 	<link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript"> 
+		$(document).ready(function(){
+			$('button').click(function(){
+				var task = $('#add_todo').val();
+				var html = '<li><span>'+task+'</span></li>';
+				$('#first').append(html);
+			});
+		});
 
+		$('#submit').click(function(){            
+			$.ajax({  
+				url:"db.php",  
+				method:"POST",  
+				data:$('#add_todo').serialize(),  
+				success:function(data)  
+				{  
+					alert(data);  
+					$('#add_todo')[0].reset();  
+				}  
+			});  
+		});  
+	</script>
 	<link rel="stylesheet" href="css/style.css">
 
 
@@ -22,33 +42,17 @@
 
 			<div class="list">
 				<header>Liste</header>
-				<ul>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
+				<ul id="first">
 				</ul>
-				<footer>Nouvelle tâche</footer>
+				<footer>
+					<input type="text" id="add_todo"/>
+					<button id="submit">Add card</button>
+				</footer>
 			</div>
 
 			<div class="list">
 				<header>Liste</header>
 				<ul>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>
-						<img src="holder.js/300x150?auto=yes&bg=#ccc" alt="">
-						
-					</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
 				</ul>
 				<footer>Nouvelle tâche</footer>
 			</div>
@@ -56,8 +60,6 @@
 			<div class="list">
 				<header>Liste</header>
 				<ul>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
 				</ul>
 				<footer>Nouvelle tâche</footer>
 			</div>
@@ -65,25 +67,6 @@
 			<div class="list">
 				<header>Liste</header>
 				<ul>
-					<li>
-						<img src="holder.js/600x400?auto=yes&bg=#ccc" alt="">
-						
-					</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>
-						<img src="holder.js/150x150?auto=yes&bg=#ccc" alt="">
-						
-					</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
 				</ul>
 				<footer>Nouvelle tâche</footer>
 			</div>
@@ -91,45 +74,6 @@
 			<div class="list">
 				<header>Liste</header>
 				<ul>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-				</ul>
-				<footer>Nouvelle tâche</footer>
-			</div>
-			
-			<div class="list">
-				<header>Liste</header>
-				<ul>
-					<li>
-						<img src="holder.js/150x150?auto=yes&bg=#ccc" alt="">
-						
-					</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>
-						<img src="holder.js/600x400?auto=yes&bg=#ccc" alt="">
-						
-					</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-				</ul>
-				<footer>Nouvelle tâche</footer>
-			</div>
-			
-			<div class="list">
-				<header>Liste</header>
-				<ul>
-					<li>Du texte ici... et là.</li>
-					<li>Du texte ici... et là.</li>
-					<li>Some more text</li>
-					<li>Some more text</li>
 				</ul>
 				<footer>Nouvelle tâche</footer>
 			</div>
